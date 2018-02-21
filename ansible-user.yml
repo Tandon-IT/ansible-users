@@ -1,5 +1,4 @@
 ---
----
- - host: all
-   roles:
-    - ansible-user
+- hosts: all
+  roles:
+   - ansible-users
