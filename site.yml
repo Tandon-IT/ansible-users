@@ -1,5 +1,0 @@
----
----
- - host: all
-   roles:
-    - ansible-user
