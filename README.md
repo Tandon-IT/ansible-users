@@ -32,8 +32,9 @@ The following attributes are required for each user:
 * gid - The numeric group id for the group (optional). Otherwise, the
   uid will be used.
 * password - If a hash is provided then that will be used, but otherwise the
-  account will be locked.
-* hash password - To use an encrypted password run the following command and insert the output in the play: ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'password') }}"
+  account will be locked. Python library should be used to generate the hash:
+  
+  ```python -c "from passlib.hash import sha512_crypt; import getpass; print(sha512_crypt.using(rounds=5000).hash(getpass.getpass()))"```
 * update_password - This can be either 'always' or 'on_create'
   - 'always' will update passwords if they differ. (default)
   - 'on_create' will only set the password for newly created users.
