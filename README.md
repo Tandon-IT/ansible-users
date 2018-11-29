@@ -44,6 +44,7 @@ The following attributes are required for each user:
 * profile - A string block for setting custom shell profiles.
 * ssh_key - This should be a list of SSH keys for the user (optional). Each SSH key
   should be included directly and should have no newlines.
+* ssh_key_exclusive - Set this to "yes" to make the ssh_key exlusive for this user.
 * generate_ssh_key - Whether to generate a SSH key for the user (optional, defaults to no).
 
 In addition, the following items are optional for each user:
