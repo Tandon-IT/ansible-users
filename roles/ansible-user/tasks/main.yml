@@ -33,10 +33,12 @@
   authorized_key:
     user: "{{item.0.username}}"
     key: "{{item.1}}"
+    exclusive: "{{item.2 | default(omit)}}"
     path: "{{ item.0.home | default('/home/' + item.0.username) }}/.ssh/authorized_keys"
   with_subelements:
     - "{{users}}"
     - ssh_key
+    - ssh_key_exclusive
     - skip_missing: yes
   tags: ['users','configuration']
 
